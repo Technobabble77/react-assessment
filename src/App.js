@@ -126,7 +126,7 @@ class App extends Component {
     let list = null;
 
     // Dynamically add each list item to the virtual DOM
-    // Handle clicks, checks, and pass state values to ./TodoListTodoList
+    // Handle clicks, checks, and pass state values as props to ./TodoListTodoList
     list = (
       <div>
         {this.state.todoItems.map((todoitem, index) => {
@@ -145,7 +145,7 @@ class App extends Component {
     );
 
     // Reflect state or updated state in the DOM
-    // Handle form submission (OnSubmit or button click) to add new items
+    // Handle form submission (onSubmit or button click) to add new items
     // {list} jsx to place new items in the ToDo list
     return (
       <div className='container center'>

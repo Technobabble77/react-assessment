@@ -3,7 +3,7 @@ import React from 'react';
 import './TodoList.css';
 
 const todolist = props => {
-  // Change className depending on checkbox click state of todo item
+  // Change className depending on todo-checkbox checked state
   const checkboxClassName = props.checked ? 'todo-checkbox-text is-checked' : 'todo-checkbox-text';
 
   // Customize hover title text for delete button and checkbox of each todo item
