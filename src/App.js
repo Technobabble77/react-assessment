@@ -3,6 +3,7 @@ import './App.css';
 
 import TodoList from './TodoList/TodoList';
 
+// Reference code from the original react-assessment scripts.js
 // const classNames = {
 //   TODO_ITEM: 'todo-container',
 //   TODO_CHECKBOX: 'todo-checkbox',
@@ -19,6 +20,7 @@ import TodoList from './TodoList/TodoList';
 // }
 
 class App extends Component {
+  // Initialize state
   state = {
     todoItems: [],
     newItemText: '',
@@ -27,10 +29,14 @@ class App extends Component {
     i: 0
   };
 
+  // Capture new item text onChange of the new-todo input. Update state with new value.
   newItemTextHandler = event => {
     this.setState({ newItemText: event.target.value });
   };
 
+  // On ToDo form submit (button or enter) update state with new item
+  // Increase total count and Unchecked count
+  // Validate that text has been entered for a new item, otherwise warn the user
   newTodoHandler = event => {
     event.preventDefault();
 
@@ -64,6 +70,9 @@ class App extends Component {
     }
   };
 
+  // Handle a user checking (completing) a todo item
+  // Correctly adjust Unchecked item count
+  // Update state to allow for CSS change
   checkedItemHandler = (event, itemIndex) => {
     const itemIsChecked = event.target.checked;
 
@@ -90,6 +99,9 @@ class App extends Component {
     });
   };
 
+  // Delete item on click of the todo-delete button
+  // Adjust item counts and unchecked item counts
+  // Update state with updated items list
   deleteItemHandler = itemIndex => {
     let delItemCount = this.state.itemCount;
     delItemCount--;
@@ -113,6 +125,8 @@ class App extends Component {
   render() {
     let list = null;
 
+    // Dynamically add each list item to the virtual DOM
+    // Handle clicks, checks, and pass state values to ./TodoListTodoList
     list = (
       <div>
         {this.state.todoItems.map((todoitem, index) => {
@@ -130,6 +144,9 @@ class App extends Component {
       </div>
     );
 
+    // Reflect state or updated state in the DOM
+    // Handle form submission (OnSubmit or button click) to add new items
+    // {list} jsx to place new items in the ToDo list
     return (
       <div className='container center'>
         <h1 className='center title'>My TODO App</h1>
